@@ -81,6 +81,7 @@ pub fn allocate(window: *mut cef_window_t) -> *mut DisplayHandler {
                 has_one_ref: Some(has_one_ref),
                 has_at_least_one_ref: Some(has_at_least_one_ref),
             },
+            on_cursor_change:None,
             on_address_change: None,
             on_title_change: None,
             on_favicon_urlchange: None,

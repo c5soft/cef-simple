@@ -28,6 +28,7 @@ unsafe extern "C" fn get_print_handler(
 pub fn allocate() -> *mut BrowserProcessHandler {
     let handler = BrowserProcessHandler {
         handler: cef_browser_process_handler_t {
+            get_default_client:None,
             base: cef_base_ref_counted_t {
                 size: size_of::<BrowserProcessHandler>() as u64,
                 add_ref: Some(add_ref),
@@ -37,8 +38,8 @@ pub fn allocate() -> *mut BrowserProcessHandler {
             },
             on_context_initialized: None,
             on_before_child_process_launch: None,
-            on_render_process_thread_created: None,
-            get_print_handler: Some(get_print_handler),
+            //on_render_process_thread_created: None,
+            //get_print_handler: Some(get_print_handler),
             on_schedule_message_pump_work: None,
         },
         ref_count: AtomicUsize::new(1),

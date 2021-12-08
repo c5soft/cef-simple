@@ -87,7 +87,7 @@ extern "C" fn window_delegate_created(slf: *mut cef_window_delegate_t, window: *
     let mut browser_settings = cef_browser_settings_t::default();
     browser_settings.databases = cef_state_t_STATE_DISABLED;
     browser_settings.local_storage = cef_state_t_STATE_ENABLED;
-    browser_settings.application_cache = cef_state_t_STATE_DISABLED;
+    //browser_settings.application_cache = cef_state_t_STATE_DISABLED;
 
     let client = client::allocate(window);
     let browser_view_delegate = browser_view_delegate::allocate();
@@ -189,11 +189,15 @@ pub unsafe fn allocate(options: WindowOptions) -> *mut WindowDelegate {
                     on_child_view_changed: None,
                     on_focus: None,
                     on_blur: None,
+                    on_layout_changed:None,
+                    on_window_changed:None,
                 },
             },
             on_window_created: Some(window_delegate_created),
             on_window_destroyed: None,
             get_parent_window: None,
+            get_initial_bounds:None,
+            get_initial_show_state:None,
             is_frameless: Some(is_frameless),
             can_resize: Some(can_resize),
             can_maximize: Some(can_maximize),

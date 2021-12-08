@@ -27,6 +27,7 @@ pub fn allocate() -> *mut RequestHandler {
                 has_one_ref: Some(has_one_ref),
                 has_at_least_one_ref: Some(has_at_least_one_ref),
             },
+            on_document_available_in_main_frame:None,
             on_before_browse: None,
             on_open_urlfrom_tab: None,
             get_resource_request_handler: None,

@@ -20,6 +20,7 @@ impl BrowserViewDelegate {
 pub fn allocate() -> *mut BrowserViewDelegate {
     let browser_view = BrowserViewDelegate {
         browser_view_delegate: cef_browser_view_delegate_t {
+            get_chrome_toolbar_type:None,
             base: cef_view_delegate_t {
                 base: cef_base_ref_counted_t {
                     size: size_of::<BrowserViewDelegate>() as u64,
@@ -36,6 +37,8 @@ pub fn allocate() -> *mut BrowserViewDelegate {
                 on_child_view_changed: None,
                 on_focus: None,
                 on_blur: None,
+                on_layout_changed:None,
+                on_window_changed:None,
             },
             on_browser_created: None,
             on_browser_destroyed: None,
