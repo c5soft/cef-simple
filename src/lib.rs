@@ -10,6 +10,8 @@ use imp::bindings::{
 pub use imp::window_delegate::WindowOptions;
 use imp::{app, window_delegate};
 
+use crate::imp::bindings::cef_quit_message_loop;
+
 pub struct Cef {}
 
 impl Cef {
@@ -126,8 +128,10 @@ impl Cef {
         log::debug!("running message loop");
         unsafe { cef_run_message_loop() };
 
-        log::debug!("shutting down");
-        unsafe { cef_shutdown() };
+        //unsafe { cef_quit_message_loop()};
+
+        //log::debug!("shutting down");
+        //unsafe { cef_shutdown() };
 
         Ok(())
     }
