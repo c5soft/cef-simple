@@ -13,8 +13,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cef = Cef::initialize(None, true)?;
 
     cef.open_window(WindowOptions {
-        url: "D:/Rust/filer/public/index.html".to_owned(),
-        title: Some("CEF Simple".to_string()),
+        url: "file://D:/Rust/filer/public/index.html".to_owned(),
+        title: None,//Some("CEF Simple".to_string()),
         window_icon: Some(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
             "/icon.png"

@@ -128,8 +128,6 @@ impl Cef {
         log::debug!("running message loop");
         unsafe { cef_run_message_loop() };
 
-        //unsafe { cef_quit_message_loop()};
-
         //log::debug!("shutting down");
         //unsafe { cef_shutdown() };
 
