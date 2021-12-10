@@ -1,6 +1,15 @@
 use cef_simple::{Cef, WindowOptions};
-
+use simplelog::*;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+
+    CombinedLogger::init(vec![TermLogger::new(
+        LevelFilter::Trace,
+        Config::default(),
+        TerminalMode::Mixed,
+        simplelog::ColorChoice::Always
+    )])
+    .unwrap();
+
     let cef = Cef::initialize(None, true)?;
 
     cef.open_window(WindowOptions {
